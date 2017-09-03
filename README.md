@@ -6,6 +6,9 @@ Is is based on the following discussion in the [Microsoft Forum](https://social.
 
 ![screenshot](https://user-images.githubusercontent.com/2531380/30004527-613db51a-90d1-11e7-9fea-c6d02a7f31da.png)
 
+It is a standalone and portable applications and can be used without installing it. 
+  * https://github.com/thsmi/recycler/releases
+
 If you like this project consider donating:
 
   * via Paypal [![PayPayl donate button](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8DWJHGLLWTP5N "Donate to this project using Paypal")
