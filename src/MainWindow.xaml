@@ -1,0 +1,80 @@
+﻿<Window x:Class="Recycler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recycler"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Recycle Bin Properties" Height="541" Width="610" SourceInitialized="Window_SourceInitialized">
+    <Window.Resources>
+        <local:EnumBooleanConverter x:Key="EnumBooleanConverter"/>
+        <DataTemplate x:Key="myDataTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Canvas Margin="0,0,81,0">
+                    <Border CornerRadius="50"
+        Width="60"
+        Height="60"
+        Margin="10"
+        Padding="0,20,0,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                        <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"  Margin="13,-7,12,18" VerticalAlignment="Center" Text="{Binding Drive}"/>
+                    </Border>
+                </Canvas>
+                <StackPanel Grid.Column="1">
+                    <Label FontWeight="Bold" Margin="0" Content="{Binding Path}" />
+                    <Label Content="{Binding Type}" Margin="0,0,0,10"/>
+                    <RadioButton GroupName="{Binding}" IsChecked="{Binding Path=RecycleBinStatus, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=NotConfigured}" Content="Disable Recylce Bin" Margin="10,5,0,5"/>
+                    <RadioButton GroupName="{Binding}" IsChecked="{Binding Path=RecycleBinStatus, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=Deactivated}" Content="Remove files Immediately,&#xD;&#xA;Do not move to Recycle Bin" Margin="10,0,0,5"/>
+                    <RadioButton GroupName="{Binding}" IsChecked="{Binding Path=RecycleBinStatus, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=Activated}" Content="Use Recycle Bin" Margin="10,0,0,0"/>
+                    <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
+                        <Label Content="Max Size:"/>
+                        <TextBox TextWrapping="Wrap" Height="18" Width="105" Text="{Binding MaxSize,  UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        <Label Content="MB"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <!--<WrapPanel>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                        <TextBlock Text=", " />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Age: " />
+                        <TextBlock Text="{Binding Age}" FontWeight="Bold" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Mail}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Test"/>
+                        <CheckBox Content="test"/>
+                    </StackPanel>
+                </StackPanel>
+            </WrapPanel>-->
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <ListView Name="lvDataBinding"  ItemTemplate="{DynamicResource myDataTemplate}" Margin="0,0,0,10" BorderBrush="{x:Null}"/>
+        <Button Content="Donate" VerticalAlignment="Top" Click="OnDonateClick" Grid.Row="1" HorizontalAlignment="right" Width="150" Margin="0,0,155,0" Height="25"/>
+        <Button Content="About" VerticalAlignment="Top" Click="OnAboutClick" Grid.Row="1"  HorizontalAlignment="right" Width="150" Height="25"/>
+    </Grid>
+
+</Window>
