@@ -6,7 +6,7 @@ Is is based on the following discussion in the [Microsoft Forum](https://social.
 
 ![screenshot](https://user-images.githubusercontent.com/2531380/30004527-613db51a-90d1-11e7-9fea-c6d02a7f31da.png)
 
-It is a standalone and portable applications and can be used without installing it. 
+It is a standalone and portable applications and can be used without installing it. It requires .NET 4.5 and Windows 7 or better.
   * https://github.com/thsmi/recycler/releases
 
 If you like this project consider donating:
