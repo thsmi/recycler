@@ -61,4 +61,4 @@ or send an email to schmid-thomas at gmx.net .
 ## License
 
 The extension is free and open source software, it is made available to you 
-under the terms of the MIT license.
+under the terms of the [MIT License](https://github.com/thsmi/recycler/blob/master/LICENSE).
